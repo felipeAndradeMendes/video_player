@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: linear-gradient(rgb(139,169,202), rgb(97,75,48)); 
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .containerVideoBg{
+            width: 100vw;
+            height: 100hw;
+            overflow: hidden;
+            position: absolute;
+        }
+        .videoBg{
+            width: 100%;            
+            left: 0;
+            top:0;
+            filter: blur(10px)
+        }
+
+        /* ///////////////////// */
+
+        .container{
+            position: relative;
+            width: 640px;
+            height: 360px;      
+            overflow: hidden;     
+            /* box-shadow: 5px 5px 10px rgb(53, 53, 53); */
+            box-shadow: 0 0 1em rgb(41, 41, 41);
+        }
+        .container:hover .controle{
+            bottom: 0;            
+        }
+        .video{
+            width: 100%;
+        }        
+        .controle{
+            position:absolute;            
+            bottom: -55px;
+            width: 60%;
+            text-align: center;;
+            background-color: rgba(255, 255, 255, .7);         
+            left: 20%;   
+            border-radius: 10px 10px 0px 0px;
+            transition: .4s ease-in-out;
+        }
+        .btn{
+            width: 50px;
+            margin-left: 5px;
+            padding: 5px;
+        }
+        .btn:hover{
+            background-color: rgba(49, 49, 49, 0.2);
+        }
+        span{
+            position: absolute;
+            bottom: 5px;
+            left: 48.5%;
+            font-size: .8em;
+            color:rgba(53, 53, 53, .8);
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="containerVideoBg">
+        <video id="videoBg" class="videoBg" autoplay loop src="./assets/praia.mp4"></video>
+    </div>
+
+    <div class="container">
+        <video id="video01" class="video" src="./assets/praia.mp4"></video>
+
+        <div class="controle">
+            <img onclick="skip_back()" src="./assets/btns/skip-back.png" alt="" class="btn">
+            <img onclick="skip_forward()" src="./assets/btns/skip-forward.png" alt="" class="btn">
+            <img onclick="decrease()" src="./assets/btns/decrease.png" alt="" class="btn">
+            <span id="vel">1x</span>
+            <img onclick="increase()" src="./assets/btns/increase.png" alt="" class="btn">
+            <img onclick="play()" src="./assets/btns/play-circle.png" alt="" class="btn" id="play">
+            <img onclick="stop()" src="./assets/btns/stop.png" alt="" class="btn">
+        </div>
+
+    </div>
+    
+
+
+
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
+<!-- 
+What I want to do is when a certain div is hovered, it'd affect the properties of another div.
+
+For example, in this JSFiddle demo, when you hover over #cube it changes the background-color but what I want is that when I hover over #container, #cubeis affected.
+
+div {
+  outline: 1px solid red;
+}
+
+#container {
+  width: 200px;
+  height: 30px;
+}
+
+#cube {
+  width: 30px;
+  height: 100%;
+  background-color: red;
+}
+
+#cube:hover {
+  width: 30px;
+  height: 100%;
+  background-color: blue;
+}
+<div id="container">
+  <div id="cube">
+  </div>
+</div>
+
+If the cube is directly inside the container:
+
+#container:hover > #cube { background-color: yellow; }
+If cube is next to (after containers closing tag) the container:
+
+#container:hover + #cube { background-color: yellow; }
+If the cube is somewhere inside the container:
+
+#container:hover #cube { background-color: yellow; }
+If the cube is a sibling of the container:
+
+#container:hover ~ #cube { background-color: yellow; } -->
