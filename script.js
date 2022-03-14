@@ -44,6 +44,7 @@ function currentVel(e){             //mostra na barra de conrtole qual a velocid
 
 
 let videoBg = document.querySelector("#videoBg") // video de fundo mais lento
+videoBg.play()
 videoBg.playbackRate = 0.6
 
 
